@@ -8,7 +8,7 @@ export ZSH="/usr/share/oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -103,14 +103,21 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="nvim ~/.zshrc"
+alias zshconfig="v ~/.zshrc"
+alias v="nvim"
+alias initvim="v ~/.config/nvim/init.vim"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # finder
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
 
-PROMPT="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%1~ %{$reset_color%}%# "
+autoload -Uz vcs_info
+# zstyle ':vcs_info:git:*' formats ' (%b)'
+precmd() { vcs_info }
+setopt prompt_subst
+
+# PROMPT='%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[green]%}${vcs_info_msg_0_}%{$fg[yellow]%}]%{$reset_color%}$%b '
 
 
 # aliases
@@ -123,3 +130,4 @@ nvidia-smi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# PROMPT="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~%{$fg[green]%}${vcs_info_msg_0_} %{$reset_color%}%# "
