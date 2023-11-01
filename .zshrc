@@ -107,7 +107,7 @@ alias lsa="ls -la"
 alias zshconfig="v ~/.zshrc"
 alias v="nvim"
 alias initvim="v ~/.config/nvim/init.vim"
-alias killtmux="tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill"
+alias s="kitten ssh"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # finder
