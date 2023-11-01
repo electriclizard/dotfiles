@@ -103,9 +103,11 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+alias lsa="ls -la"
 alias zshconfig="v ~/.zshrc"
 alias v="nvim"
 alias initvim="v ~/.config/nvim/init.vim"
+alias killtmux="tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # finder

@@ -4,8 +4,9 @@
 :set shiftwidth=4
 :set smarttab
 :set softtabstop=4
-:set mouse=a
 :set colorcolumn=120
+
+:set clipboard+=unnamedplus
 
 :set undofile
 :set undodir=~/.local/share/nvim/undo
@@ -26,6 +27,7 @@ Plug 'https://github.com/terryma/vim-multiple-cursors'
 Plug 'https://github.com/preservim/tagbar'
 Plug 'https://github.com/neoclide/coc.nvim'
 Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'https://github.com/matveyt/neoclip'
 
 set encoding=UTF-8
 
