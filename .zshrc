@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/usr/share/oh-my-zsh"
+export ZSH="/Users/cheena/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -102,17 +102,20 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-alias lsa="ls -la"
+# my aliases
 alias zshconfig="v ~/.zshrc"
 alias v="nvim"
 alias initvim="v ~/.config/nvim/init.vim"
+alias killtmux="tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill"
 alias s="kitten ssh"
+alias emptydnscache="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+alias ys-restart="yabai --stop-service; yabai --start-service; skhd --restart-service"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # finder
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
+source <(fzf --zsh)
 
 autoload -Uz vcs_info
 # zstyle ':vcs_info:git:*' formats ' (%b)'
@@ -127,9 +130,15 @@ alias dcr-rmi-none="docker image rm -f $(docker images --all | grep none | awk '
 
 # run on startup
 neofetch
-nvidia-smi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # PROMPT="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~%{$fg[green]%}${vcs_info_msg_0_} %{$reset_color%}%# "
+
+# The next line updates PATH for Yandex Cloud CLI.
+if [ -f '/Users/cheena/yandex-cloud/path.bash.inc' ]; then source '/Users/cheena/yandex-cloud/path.bash.inc'; fi
+
+# The next line enables shell command completion for yc.
+if [ -f '/Users/cheena/yandex-cloud/completion.zsh.inc' ]; then source '/Users/cheena/yandex-cloud/completion.zsh.inc'; fi
+
