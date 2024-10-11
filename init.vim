@@ -4,15 +4,13 @@
 :set shiftwidth=4
 :set smarttab
 :set softtabstop=4
+:set mouse=a
 :set colorcolumn=120
-
-:set clipboard+=unnamedplus
-
+:set clipboard=unnamed
 :set undofile
 :set undodir=~/.local/share/nvim/undo
 :set undolevels=1000
 :set undoreload=10000
-:syntax on
 
 call plug#begin("~/.config/nvim/plugged")
 
@@ -25,9 +23,12 @@ Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/tc50cal/vim-terminal'
 Plug 'https://github.com/terryma/vim-multiple-cursors'
 Plug 'https://github.com/preservim/tagbar'
-Plug 'https://github.com/neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://github.com/tpope/vim-fugitive'
-Plug 'https://github.com/matveyt/neoclip'
+Plug 'prabirshrestha/async.vim'
+Plug 'kenn7/vim-arsync'
+Plug 'shellRaining/hlchunk.nvim'
+Plug 'xiyaowong/transparent.nvim'
 
 set encoding=UTF-8
 
@@ -40,6 +41,11 @@ nnoremap <space> :nohlsearch<CR>
 source ~/.config/nvim/plugged/awesome-vim-colorschemes/colors/nord.vim
 
 call plug#end()
+
+" Enable tabs and spaces highlight
+lua << EOF
+require("hlchunk").setup({})
+EOF
 
 let g:python3_host_prog = '~/.config/nvim/env/bin/python3'
 let g:pydocstring_doq_path = '~/.config/nvim/env/bin/doq'
