@@ -8,7 +8,7 @@ export ZSH="/Users/cheena/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="agnoster-custom"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -142,3 +142,7 @@ if [ -f '/Users/cheena/yandex-cloud/path.bash.inc' ]; then source '/Users/cheena
 # The next line enables shell command completion for yc.
 if [ -f '/Users/cheena/yandex-cloud/completion.zsh.inc' ]; then source '/Users/cheena/yandex-cloud/completion.zsh.inc'; fi
 
+# k8s config aliases
+alias k8s='kubectl'
+alias k8s-dev='kubectl --kubeconfig ~/.kube/kube-configs/path-to.kubeconfig'
+alias k9s-dev='k9s --kubeconfig ~/.kube/kube-configs/path-to.kubeconfig'

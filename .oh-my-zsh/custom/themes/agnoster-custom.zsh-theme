@@ -308,7 +308,7 @@ prompt_dir() {
     # Git repo and inline path enabled, hence only show the git root
     prompt_segment "$AGNOSTER_DIR_BG" "$AGNOSTER_DIR_FG" "$(git_toplevel | sed "s:^$HOME:~:")"
   else
-    prompt_segment "$AGNOSTER_DIR_BG" "$AGNOSTER_DIR_FG" '%1d'
+    prompt_segment "$AGNOSTER_DIR_BG" "$AGNOSTER_DIR_FG" '%1~'
   fi
 }
 
